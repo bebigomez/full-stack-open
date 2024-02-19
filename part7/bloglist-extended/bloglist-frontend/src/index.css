@@ -1,0 +1,67 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Bricolage Grotesque';
+}
+
+h2 {
+  margin: 10px 0px;
+}
+
+p {
+  margin: 7px;
+}
+
+input {
+  background-color: white;
+  border: #CCCCCC solid 1px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  padding-right: 100%;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #362fd9;
+}
+
+.login-form {
+  width: 300px;
+  margin: 50px auto;
+}
+
+.bloglist-container {
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.blog {
+  background: #f7f7f7;
+  border: 5px solid white;
+  padding: 15px 10px;
+  margin: 0px;
+  border-radius: 10px;
+}
+
+.inputs-container {
+  width: 500px;
+}
+
+
+.error {
+  background: rgb(255, 118, 118);
+  color: rgb(15, 15, 15);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.success {
+  background: rgb(145, 255, 145);
+  color: rgb(15, 15, 15);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+}
