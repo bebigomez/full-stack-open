@@ -1,22 +1,26 @@
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { commentBlog, likeBlog } from '../reducers/blogReducer'
 import { Button, Input, SubmitButton } from './StyledComponents'
+import blogService from '../services/blogs'
 
 const BlogDetails = () => {
   const [comment, setComment] = useState('')
+  const [selectedBlog, setSelectedBlog] = useState(null)
   const { id } = useParams()
 
   const dispatch = useDispatch()
 
-  const blogs = useSelector((state) => state.blogs)
-  const selectedBlog = blogs.find((blog) => blog.id === id)
+  useEffect(() => {
+    blogService.getById(id).then(setSelectedBlog)
+  }, [id])
 
   const handleComment = async (event) => {
     event.preventDefault()
     try {
       dispatch(commentBlog(selectedBlog, comment))
+      setSelectedBlog((prev) => ({ ...prev, comments: [...prev.comments, comment] }))
       setComment('')
     } catch (error) {
       console.error('Error adding comment:', error)

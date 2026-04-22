@@ -1,10 +1,14 @@
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { getUserById } from '../services/users'
 
 const UserDetails = () => {
   const { id } = useParams()
-  const users = useSelector(state => state.users)
-  const user = users.find(user => user.id === id)
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    getUserById(id).then(setUser)
+  }, [id])
 
   if (!user) {
     return null

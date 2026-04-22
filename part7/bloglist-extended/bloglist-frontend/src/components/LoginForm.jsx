@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const username = useField('text', 'guestUser')
   const password = useField('password', 'SuperSecretPass')
-
+  
   const handleLogin = async (event) => {
     event.preventDefault()
 
