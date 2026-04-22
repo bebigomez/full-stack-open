@@ -12,8 +12,8 @@ import { Button } from './StyledComponents'
 const LoginForm = () => {
   const dispatch = useDispatch()
 
-  const username = useField('text')
-  const password = useField('password')
+  const username = useField('text', 'guestUser')
+  const password = useField('password', 'SuperSecretPass')
 
   const handleLogin = async (event) => {
     event.preventDefault()
